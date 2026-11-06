@@ -1,0 +1,311 @@
+
+/* ==========================================
+   NAMBHA SHOP - ADMIN DASHBOARD THEME
+========================================== */
+
+/* PAGE BACKGROUND */
+
+html,
+body,
+#container {
+    background: #f4f7fc !important;
+    color: #263247 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* TOP HEADER */
+
+#header {
+    background: #172b70 !important;
+    color: #ffffff !important;
+    padding: 15px 30px !important;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#branding h1 {
+    font-size: 25px !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+#branding h1 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* USER DETAILS */
+
+#user-tools {
+    color: #ffffff !important;
+    font-size: 13px;
+}
+
+#user-tools a {
+    color: #ffffff !important;
+}
+
+/* BREADCRUMBS */
+
+div.breadcrumbs {
+    background: #2874f0 !important;
+    color: #ffffff !important;
+    padding: 13px 30px !important;
+}
+
+div.breadcrumbs a {
+    color: #ffffff !important;
+}
+
+/* MAIN DASHBOARD */
+
+#content {
+    background: #f4f7fc !important;
+    padding: 30px !important;
+}
+
+#content h1 {
+    color: #172b70 !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 25px !important;
+}
+
+/* DASHBOARD LAYOUT */
+
+#content-main {
+    width: 68% !important;
+}
+
+#content-related {
+    width: 28% !important;
+    margin-right: 0 !important;
+    background: transparent !important;
+}
+
+/* MODULE CARDS */
+
+#content-main .module {
+    background: #ffffff !important;
+    border: 1px solid #e5eaf2 !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 15px rgba(23, 43, 112, 0.06);
+}
+
+/* MODULE HEADINGS */
+
+#content-main .module caption,
+#content-main .module h2 {
+    background: #2874f0 !important;
+    color: #ffffff !important;
+    padding: 15px 18px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-align: left;
+}
+
+#content-main .module caption a,
+#content-main .module h2 a {
+    color: #ffffff !important;
+}
+
+/* MODULE ROWS */
+
+#content-main .module tr {
+    background: #ffffff !important;
+}
+
+#content-main .module tr:nth-child(even) {
+    background: #f8faff !important;
+}
+
+#content-main .module th,
+#content-main .module td {
+    padding: 15px 12px !important;
+    border-bottom: 1px solid #edf0f5 !important;
+}
+
+#content-main .module th a {
+    color: #172b70 !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#content-main .module th a:hover {
+    color: #2874f0 !important;
+}
+
+/* ADD AND CHANGE LINKS */
+
+#content-main .addlink {
+    color: #16a34a !important;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+#content-main .changelink {
+    color: #2874f0 !important;
+    font-weight: bold;
+}
+
+#content-main .addlink:hover,
+#content-main .changelink:hover {
+    text-decoration: underline;
+}
+
+/* RECENT ACTIONS CARD */
+
+#content-related {
+    background: #ffffff !important;
+    border: 1px solid #e5eaf2 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 4px 15px rgba(23, 43, 112, 0.06);
+    height: fit-content;
+}
+
+#content-related h2 {
+    color: #172b70 !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    background: #ffffff !important;
+    padding: 5px 0 15px !important;
+    border-bottom: 1px solid #edf0f5;
+}
+
+#content-related h3 {
+    color: #2874f0 !important;
+    font-size: 15px !important;
+    margin-top: 20px;
+}
+
+#content-related p,
+#content-related li {
+    color: #555555 !important;
+}
+
+/* ALL LINKS */
+
+a:link,
+a:visited {
+    color: #2874f0;
+}
+
+a:hover {
+    color: #1558c0;
+}
+
+/* BUTTONS */
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+    background: #2874f0 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 7px !important;
+    padding: 10px 18px !important;
+    font-weight: 600 !important;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+a.button:hover {
+    background: #1558c0 !important;
+}
+
+/* FORM FIELDS */
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea,
+select {
+    border: 1px solid #d9dfe8 !important;
+    border-radius: 7px !important;
+    padding: 10px !important;
+    background: #ffffff !important;
+    color: #263247 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2874f0 !important;
+    box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.12) !important;
+    outline: none !important;
+}
+
+/* CHANGE LIST TABLES */
+
+#result_list {
+    background: #ffffff !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#result_list thead th {
+    background: #eaf1ff !important;
+    color: #172b70 !important;
+    padding: 14px !important;
+}
+
+#result_list tbody tr:nth-child(even) {
+    background: #f8faff !important;
+}
+
+#result_list tbody td {
+    padding: 12px !important;
+}
+
+/* FILTER PANEL */
+
+#changelist-filter {
+    background: #ffffff !important;
+    border: 1px solid #e5eaf2 !important;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#changelist-filter h2 {
+    background: #2874f0 !important;
+    color: #ffffff !important;
+    padding: 12px !important;
+}
+
+/* DELETE BUTTON */
+
+.deletelink {
+    color: #dc3545 !important;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 767px) {
+
+    #content {
+        padding: 15px !important;
+    }
+
+    #content-main,
+    #content-related {
+        width: 100% !important;
+        float: none !important;
+        margin: 15px 0 !important;
+    }
+
+    #header {
+        padding: 12px 15px !important;
+    }
+
+    #branding h1 {
+        font-size: 20px !important;
+    }
+}

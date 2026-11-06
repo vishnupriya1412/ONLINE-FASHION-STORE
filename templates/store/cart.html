@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2 class="mb-4">My Shopping Cart 🛒</h2>
+
+    {% for item in cart_items %}
+
+    <div class="card mb-3">
+
+        <div class="card-body">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-4">
+                    <h5>{{ item.product.name }}</h5>
+                    <p>{{ item.product.category }}</p>
+                </div>
+
+                <div class="col-md-2">
+                    ₹{{ item.product.price }}
+                </div>
+
+                <div class="col-md-2">
+                    Quantity: {{ item.quantity }}
+                </div>
+
+                <div class="col-md-2">
+                    ₹{{ item.subtotal }}
+                </div>
+
+                <div class="col-md-2">
+
+                    <form
+                        method="POST"
+                        action="{% url 'remove_from_cart' item.product.id %}"
+                    >
+
+                        {% csrf_token %}
+
+                        <button class="btn btn-danger btn-sm">
+                            Remove
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <h4>Your cart is empty!</h4>
+
+    <a href="{% url 'shop' %}" class="btn btn-dark">
+        Continue Shopping
+    </a>
+
+    {% endfor %}
+
+    {% if cart_items %}
+
+    <div class="text-end mt-4">
+
+        <h3>Total: ₹{{ total }}</h3>
+
+        <a href="{% url 'shop' %}" class="btn btn-dark">
+            Continue Shopping
+        </a>
+
+    </div>
+
+    <div class="text-end mt-4">
+
+    <a href="{% url 'checkout' %}"
+       class="btn btn-primary btn-lg">
+
+        Proceed to Checkout →
+
+    </a>
+
+</div>
+
+    {% endif %}
+
+    {% if cart_items %}
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

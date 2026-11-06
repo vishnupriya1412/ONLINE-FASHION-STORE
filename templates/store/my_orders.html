@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <h2 class="fw-bold mb-4">My Orders</h2>
+
+    {% for order in orders %}
+
+        <div class="card shadow-sm p-4 mb-4">
+
+            <div class="d-flex justify-content-between flex-wrap">
+
+                <h5>Order #{{ order.id }}</h5>
+
+                <span class="badge bg-success">
+                    {{ order.status }}
+                </span>
+
+            </div>
+
+            <p class="text-muted">
+                {{ order.created_at }}
+            </p>
+
+            <hr>
+
+            {% for item in order.items.all %}
+
+                <div class="d-flex justify-content-between mb-2">
+
+                    <span>
+                        {{ item.product_name }}
+                        × {{ item.quantity }}
+                    </span>
+
+                    <strong>₹{{ item.subtotal }}</strong>
+
+                </div>
+
+            {% endfor %}
+
+            <hr>
+
+            <h5 class="text-end">
+                Total: ₹{{ order.total_amount }}
+            </h5>
+
+        </div>
+
+    {% empty %}
+
+        <div class="alert alert-info">
+            You haven't placed any orders yet.
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

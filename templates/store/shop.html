@@ -1,0 +1,191 @@
+
+{% extends "base.html" %}
+
+{% block title %}Nambha Shop  | Online Shopping{% endblock %}
+
+{% block content %}
+
+<div class="store-content">
+
+    
+    <section class="home-banner">
+
+        <div class="banner-content">
+            <span>MEGA SHOPPING SALE</span>
+            <h1>Big Shopping Days!</h1>
+            <h2>Up to 50% OFF</h2>
+            <p>Discover amazing deals on your favourite products.</p>
+
+            <a href="#products" class="banner-button">
+                Shop Now
+            </a>
+        </div>
+
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900"
+                 alt="Fashion shopping">
+        </div>
+
+    </section>
+
+
+    
+    <h2 class="home-section-title">Shop By Category</h2>
+
+    <div class="category-images">
+
+        <a href="{% url 'shop' %}?category=Fashion" class="category-card">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500"
+                 alt="Fashion">
+            <h5>Fashion</h5>
+        </a>
+
+        <a href="{% url 'shop' %}?category=Mobiles" class="category-card">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"
+                 alt="Mobile phones">
+            <h5>Mobiles</h5>
+        </a>
+
+        <a href="{% url 'shop' %}?category=Toys" class="category-card">
+            <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=500"
+                 alt="Toys">
+            <h5>Toys</h5>
+        </a>
+
+        <a href="{% url 'shop' %}?category=Electronics" class="category-card">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=500"
+                 alt="Electronics">
+            <h5>Electronics</h5>
+        </a>
+
+        <a href="{% url 'shop' %}?category=Beauty" class="category-card">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500"
+                 alt="Beauty products">
+            <h5>Beauty</h5>
+        </a>
+
+        <a href="{% url 'shop' %}?category=Home" class="category-card">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500"
+                 alt="Home products">
+            <h5>Home</h5>
+        </a>
+
+    </div>
+
+
+    
+    <h2 class="home-section-title">Special Offers</h2>
+
+    <div class="offer-banners">
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700"
+                 alt="Fashion offers">
+            <div class="offer-text">
+                <h3>Fashion Sale</h3>
+                <p>Trendy styles at amazing prices</p>
+                <a href="{% url 'shop' %}?category=Fashion">Explore Now</a>
+            </div>
+        </div>
+
+        <div class="offer-card">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=700"
+                 alt="Mobile offers">
+            <div class="offer-text">
+                <h3>Smartphone Deals</h3>
+                <p>Upgrade your technology</p>
+                <a href="{% url 'shop' %}?category=Mobiles">Buy Now</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    
+    <section id="products" class="products-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Recommended Products</h2>
+                <p>Discover products picked for you.</p>
+            </div>
+        </div>
+
+        <div class="product-grid">
+
+            {% for product in products %}
+
+            <div class="shopping-card">
+
+                <div class="product-image-area">
+
+                    {% if product.image_url %}
+                        <img src="{{ product.image_url }}"
+                             alt="{{ product.name }}">
+                    {% else %}
+                        <div class="no-product-image">
+                            🛍️
+                            <span>No image available</span>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="shopping-card-body">
+
+                    <span class="product-category">
+                        {{ product.category }}
+                    </span>
+
+                    <h5>{{ product.name }}</h5>
+
+                    <p class="product-description">
+                        {{ product.description|truncatechars:65 }}
+                    </p>
+
+                    <div class="product-price">
+                        ₹{{ product.price }}
+                    </div>
+
+                    {% if product.stock > 0 %}
+
+                    <form method="POST"
+                          action="{% url 'add_to_cart'  product.id  %}">
+
+                        {% csrf_token %}
+
+                        <button type="submit" class="add-cart-button">
+                            Add to Cart
+                        </button>
+
+                    </form>
+
+                    {% else %}
+
+                    <button class="add-cart-button" disabled>
+                        Out of Stock
+                    </button>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="empty-products">
+                <div>🛍️</div>
+                <h3>No Products Found</h3>
+                <p>Products will appear here once they are added by the admin.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

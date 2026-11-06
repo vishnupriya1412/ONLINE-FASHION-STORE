@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+
+{% block title %}My Dashboard | NAMBHA SHOP{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="dashboard-welcome">
+        <h2>Welcome, {{ request.user.username }}!</h2>
+        <p>Welcome to NAMBHA SHOP. Happy Shopping!</p>
+    </div>
+
+    <div class="row mt-4 g-4">
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h4>Shop Products</h4>
+                <p>Explore our latest products.</p>
+                <a href="{% url 'shop' %}" class="btn btn-primary">
+                    Start Shopping
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h4>My Cart</h4>
+                <p>View your shopping cart.</p>
+                <a href="{% url 'cart' %}" class="btn btn-primary">
+                    View Cart
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <h4>My Account</h4>
+                <p>You are successfully logged in.</p>
+                <span class="text-success">Account Active</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

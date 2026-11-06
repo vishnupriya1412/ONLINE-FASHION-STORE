@@ -1,0 +1,109 @@
+
+{% extends "base.html" %}
+
+{% block title %}Checkout | {{ block.super }}{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <h2 class="fw-bold mb-4">Checkout</h2>
+
+    <div class="row g-4">
+
+  
+
+        <div class="col-md-7">
+
+            <div class="card shadow-sm p-4">
+
+                <h4 class="mb-4">Delivery Details</h4>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <label class="form-label">Customer Name</label>
+
+                    <input type="text"
+                           name="customer_name"
+                           class="form-control mb-3"
+                           value="{{ request.user.get_full_name }}"
+                           required>
+
+                    <label class="form-label">Phone Number</label>
+
+                    <input type="tel"
+                           name="phone"
+                           class="form-control mb-3"
+                           pattern="[0-9]{10,15}"
+                           required>
+
+                    <label class="form-label">Delivery Address</label>
+
+                    <textarea name="address"
+                              class="form-control mb-3"
+                              rows="4"
+                              required></textarea>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100 py-2">
+
+                        Confirm Order
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        
+
+        <div class="col-md-5">
+
+            <div class="card shadow-sm p-4">
+
+                <h4 class="mb-4">Order Summary</h4>
+
+                {% for item in cart_items %}
+
+                    <div class="d-flex justify-content-between mb-3">
+
+                        <div>
+                            <strong>{{ item.product.name }}</strong>
+
+                            <div class="text-muted small">
+                                Quantity: {{ item.quantity }}
+                            </div>
+                        </div>
+
+                        <strong>₹{{ item.subtotal }}</strong>
+
+                    </div>
+
+                {% endfor %}
+
+                <hr>
+
+                <div class="d-flex justify-content-between">
+
+                    <h5>Total Amount</h5>
+
+                    <h5 class="text-primary">
+                        ₹{{ total }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

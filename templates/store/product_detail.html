@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }} | Nambha Shop{% endblock %}
+{% block content %}
+<a href="{% url 'product_list' %}" class="text-link">← Back to products</a>
+<div class="detail-panel mt-4 p-4 p-md-5"><p class="eyebrow">{{ product.category }}</p><h1 class="display-6 fw-bold">{{ product.name }}</h1><p class="display-6 price-text">₹{{ product.price }}</p><hr><h2 class="h6 fw-bold">Description</h2><p class="text-muted">{{ product.description|default:"No description added."|linebreaksbr }}</p><div class="row mt-4"><div class="col-6"><span class="text-muted small">Available stock</span><div class="h4">{{ product.stock }} units</div></div><div class="col-6"><span class="text-muted small">Last updated</span><div>{{ product.updated_at|date:"d M Y, h:i A" }}</div></div></div><div class="d-flex flex-wrap gap-2 mt-4"><a class="btn btn-dark" href="{% url 'product_update' product.pk %}">Edit product</a><a class="btn btn-outline-danger" href="{% url 'product_delete' product.pk %}">Delete product</a></div></div>
+{% endblock %}
